@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</head>
+<body>
+    <h1> Welcome to rock paper scissors game</h1>
+    <div id="home">
+        <div>
+            <button onclick="creategame()">Create Game</button>
+        </div>
+        <div>
+            <input type="text" id="roomid"/>
+            <button onclick="joingame()">Join Game</button>
+        </div>
+    </div>
+    <div id="game">
+        <div id="waiting">
+
+        </div>
+        <div id="gamearea" style="display: none;">
+            <div class="col-md-6">
+                You:
+                <div id="player1Choice">
+                    <button class="rock" onclick="sendChoice('Rock')">Rock</button>
+                    <button class="paper" onclick="sendChoice('Paper')">Paper</button>
+                    <button class="scissor" onclick="sendChoice('Scissor')">Scissors</button>
+                </div>
+                <br>
+                Opponent:
+                <div id="player2choice">
+                    <p id="opponentstate">Waiting for the opponent to select</p>
+                </div>
+            </div>
+        </div>
+        <div id="winner"></div>
+    </div>
+</body>
+</html>
